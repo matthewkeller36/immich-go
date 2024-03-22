@@ -86,12 +86,12 @@ func DuplicateCommand(ctx context.Context, common *cmd.SharedFlags, args []strin
 		}
 		k := duplicateKey{
 			Date: d,
-			Name: strings.ToUpper(a.OriginalFileName + path.Ext(a.OriginalPath)),
+			Name: strings.ToUpper(a.OriginalFileName),
 			Type: a.Type,
 		}
 
 		if app.IgnoreExtension {
-			k.Name = strings.TrimSuffix(k.Name, path.Ext(a.OriginalPath))
+			k.Name = strings.TrimSuffix(k.Name, strings.ToUpper(path.Ext(a.OriginalPath)))
 		}
 		l := app.assetsByBaseAndDate[k]
 		if len(l) > 0 {
