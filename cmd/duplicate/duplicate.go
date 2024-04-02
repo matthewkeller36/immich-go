@@ -86,7 +86,7 @@ func DuplicateCommand(ctx context.Context, common *cmd.SharedFlags, args []strin
 		}
 		k := duplicateKey{
 			Date: d,
-			Name: strings.ToUpper(a.OriginalFileName),
+			Name: strings.ToUpper(path.Base(a.OriginalFileName)),
 			Type: a.Type,
 		}
 
